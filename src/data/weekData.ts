@@ -107,9 +107,7 @@ export const emner: Emne[] = [
     name: "Emne 2",
     color: "#33FF57",
     weeks: [
-      { id: 8, links: [{ title: "Ingen ting å se her", href: "" }] },
       { id: 9, links: [{ title: "Labyrint", href: "https://irobin93.github.io/VSCode/uke8/labyrint.html" }] },
-      { id: 10, links: [{ title: "Ingen ting å se her", href: "" }] },
       { id: 11, links: [{ title: "Snake", href: "https://irobin93.github.io/VSCode/uke11/snake.html" }] },
       { id: 12, links: [{ title: "Strikke Nettbutikk", href: "https://irobin93.github.io/Strikkebutikk/" }] },
     ],
@@ -122,10 +120,6 @@ export const emner: Emne[] = [
       {
         id: 13,
         links: [{ title: "Test", href: "StartProgram:Emne3/1of6/NoReturn/NoReturn/bin/Debug/net8.0/NoReturn.exe" }],
-      },
-      {
-        id: 14,
-        links: [{ title: "", href: "" }],
       },
       {
         id: 15,
@@ -172,7 +166,7 @@ export const emner: Emne[] = [
           { title: "BreakfastCheck", href: "https://irobin93.github.io/BreakfastCheck/" },
           { title: "Vue MusicApp", href: "https://irobin93.github.io/Emne4/" },
           { title: "GameReview", href: "https://irobin93.github.io/gamereviewclient/" },
-          {title: "FonteneLunsj", href:"lunsj.fontenehuset-oslosor.no"},
+          {title: "FonteneLunsj", href:"https://lunsj.fontenehuset-oslosor.no"},
         ],
       },
     ],

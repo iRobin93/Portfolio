@@ -35,18 +35,23 @@ const WeekList: React.FC<Props> = ({ weeks }) => {
                 transition={{ duration: 0.3 }}
                 className="px-6 pb-4"
               >
-                {week.links.map((link) => (
-                  <li key={link.href}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+                  {week.links.map((link) => (
                     <a
+                      key={link.href}
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-orangeBrand hover:underline"
+                      className="block rounded-2xl border border-orange-100 bg-white shadow-sm hover:shadow-md hover:bg-orange-50 transition-all duration-300 p-4"
                     >
-                      {link.title}
+                      <h3 className="text-orangeBrand font-semibold text-sm sm:text-base mb-1">
+                        {link.title}
+                      </h3>
+                      <p className="text-xs text-gray-500 truncate">{link.href}</p>
                     </a>
-                  </li>
-                ))}
+                  ))}
+                </div>
+
               </motion.ul>
             )}
           </AnimatePresence>

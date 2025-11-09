@@ -172,6 +172,7 @@ export const emner: Emne[] = [
           { title: "BreakfastCheck", href: "https://irobin93.github.io/BreakfastCheck/" },
           { title: "Vue MusicApp", href: "https://irobin93.github.io/Emne4/" },
           { title: "GameReview", href: "https://irobin93.github.io/gamereviewclient/" },
+          {title: "FonteneLunsj", href:"lunsj.fontenehuset-oslosor.no"},
         ],
       },
     ],

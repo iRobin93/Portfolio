@@ -14,6 +14,7 @@ const CommentSection: React.FC = () => {
   const [comments, setComments] = useState<Comment[]>([]);
   const [name, setName] = useState("");
   const [text, setText] = useState("");
+  const [lastCommentId, setLastCommentId] = useState<number | null>(null);
 
   const getComments = async () => {
     try {
@@ -27,16 +28,21 @@ const CommentSection: React.FC = () => {
   };
 
   const postComment = async () => {
-    if (!name || !text) return alert("Vennligst legg igjen navn og kommentar.");
+    if (!name || !text) return;
+
+    const newComment = { name, theComment: text };
     try {
-      await axios.post(
-        apiUrl,
-        { name, theComment: text },
-        { headers: { "x-functions-key": import.meta.env.VITE_AZURE_FUNCTION_KEY } }
-      );
-      setName("");
-      setText("");
-      getComments();
+      const response = await axios.post(apiUrl, newComment, {
+        headers: { "x-functions-key": import.meta.env.VITE_AZURE_FUNCTION_KEY },
+      });
+
+      // Store the ID of the comment just created
+      setLastCommentId(response.data.id);
+
+      // Optionally refresh or append comments
+      setComments((prev) => [...prev, response.data]);
+
+
     } catch (err) {
       console.error("Feil ved posting:", err);
     }
@@ -100,12 +106,14 @@ const CommentSection: React.FC = () => {
               <strong>{c.name}</strong>
               <p className="text-sm text-gray-700">{c.theComment}</p>
             </div>
-            <button
-              onClick={() => deleteComment(c.id)}
-              className="text-xs text-red-500 hover:text-red-700 transition"
-            >
-              Slett
-            </button>
+            {lastCommentId === c.id && (
+              <button
+                onClick={() => deleteComment(c.id)}
+                className="text-xs text-red-500 hover:text-red-700 transition"
+              >
+                Slett
+              </button>
+            )}
           </motion.div>
         ))}
       </div>

@@ -8,7 +8,12 @@ interface Props {
 }
 
 const WeekList: React.FC<Props> = ({ weeks }) => {
-  const [openWeek, setOpenWeek] = useState<number | null>(null);
+  const [openWeek, setOpenWeek] = useState<number | null>(() => {
+    // Automatically open week 17 if it exists
+    const hasWeek17 = weeks.some((w) => w.id === 17);
+    return hasWeek17 ? 17 : null;
+  });
+
 
   return (
     <div className="space-y-3 mt-3">

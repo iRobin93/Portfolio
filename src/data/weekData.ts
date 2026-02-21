@@ -403,9 +403,13 @@ export const emner: Emne[] = [
             title: "StudieTracker",
             href: "https://irobin93.github.io/StudieoktFrontend/",
           },
-                    {
+          {
             title: "Vær-App-Vue",
             href: "https://irobin93.github.io/Weather-App/",
+          },
+          {
+            title: "Voting System",
+            href: "https://voting-bucket-robinsjothun.s3.eu-north-1.amazonaws.com/index.html",
           },
         ],
       },
